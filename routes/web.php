@@ -16,7 +16,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
-    return view('/home/index');
+    return view('/home/penggunaan_layout');
 });
 
 Route::get('/home', function () {
@@ -25,14 +25,13 @@ Route::get('/home', function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/pegawai', 'PegawaiController@index')->name('pegawai.index');
-// Tambahkan definisi rute untuk halaman-halaman lainnya
 
 
-// Route::get('/home/penggunaan_layout', [HomeController::class, 'penggunaan_layout']);
+
 Route::resource('pegawai', PegawaiController::class);
 Route::post('/pegawai/{id}/riwayat', [PegawaiController::class, 'store_riwayat']);
 Route::get('/pegawai/{id}/riwayat', 'PegawaiController@riwayat');
 
 Route::delete('/pegawai/{id}/{pegawai_id}/riwayat', [PegawaiController::class, 'destroy_riwayat']);
 
-Route::get('/login', [LoginController::class, 'index']);
+
